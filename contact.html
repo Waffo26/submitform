@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - FiBu </title>
+    <meta name="description" content="Certified Accountant (IHK) with 20+ years of experience: financial accounting, controlling, payroll, management consulting and interim management." />
+    <link rel="stylesheet" href="style3.css" />
+    <script src="js/mobile-nav.js" defer></script>
+    <style>
+  :root{
+    --primary:#0B3D0B;
+    --primary-dark:#072607;
+    --gray:#555;
+    --bg:#f5f7fa;
+    --ok:#1e7e34;
+    --err:#b3261e;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:#222;
+  }
+  header{
+    background:var(--primary);
+    color:#fff;
+    padding:18px 30px;
+  }
+  header h1{
+    margin:0 0 4px 0;
+    font-size:1.4rem;
+  }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:24px;
+    padding:0;
+    margin:10px 0 0 0;
+  }
+  nav a{
+    color:#eaf0fb;
+    text-decoration:none;
+    font-weight:600;
+    font-size:.95rem;
+  }
+  nav a:hover{ text-decoration:none; }
+
+  .wrap{
+    max-width:900px;
+    margin:30px auto;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:30px;
+  }
+  @media (max-width:720px){
+    .wrap{ grid-template-columns:1fr; }
+  }
+
+  .company-card, .form-card{
+    background:#fff;
+    border-radius:10px;
+    padding:24px 26px;
+    box-shadow:0 1px 4px rgba(0,0,0,.08);
+  }
+  .company-card h2{
+    color:var(--primary);
+    margin-top:0;
+    font-size:1.15rem;
+  }
+  .company-card p{
+    line-height:1.6;
+    margin:6px 0;
+    color:var(--gray);
+  }
+  .company-card .label{
+    font-weight:600;
+    color:#222;
+  }
+
+  .form-card h2{
+    margin-top:0;
+    color:var(--primary);
+    font-size:1.15rem;
+  }
+
+  form{ margin-top:10px; }
+  .field{ margin-bottom:30px; }
+  label{
+    display:block;
+    font-weight:600;
+    margin-bottom:5px;
+    font-size:.92rem;
+  }
+  input[type=text], input[type=email], textarea{
+    width:100%;
+    min-width:0;
+    padding:10px 12px;
+    border:1px solid #ccd3dc;
+    border-radius:6px;
+    font-size:16px;
+    font-family:inherit;
+  }
+  textarea{ resize:vertical; min-height:120px; }
+  input:focus, textarea:focus{
+    outline:none;
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(11,61,11,.2);
+  }
+  .error-text{
+    color:var(--err);
+    font-size:.82rem;
+    margin-top:4px;
+    display:none;
+  }
+  .field.invalid input,
+  .field.invalid textarea{
+    border-color:var(--err);
+  }
+  .field.invalid .error-text{ display:block; }
+
+  button[type=submit]{
+    background:var(--primary);
+    color:#fff;
+    border:none;
+    padding:12px 26px;
+    border-radius:6px;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:background .15s ease;
+  }
+  button[type=submit]:hover{ background:var(--primary-dark); }
+  button[type=submit]:disabled{
+    background:#9aa9bd;
+    cursor:not-allowed;
+  }
+
+  #formNotice{
+    display:none;
+    margin-top:16px;
+    padding:12px 14px;
+    border-radius:6px;
+    font-size:.92rem;
+    font-weight:600;
+  }
+  #formNotice.success{
+    display:block;
+    background:#e6f4ea;
+    color:var(--ok);
+    border:1px solid #b7e0c3;
+  }
+  #formNotice.error{
+    display:block;
+    background:#fbeaea;
+    color:var(--err);
+    border:1px solid #f1c2c0;
+  }
+
+  footer{
+    text-align:center;
+    color:#8a95a3;
+    font-size:.82rem;
+    padding:24px 10px 30px;
+  }
+
+  @media (max-width:480px){
+    .wrap{ margin:18px auto; padding:0 12px; gap:16px; }
+    .company-card, .form-card{ padding:20px 16px; }
+    .field{ margin-bottom:20px; }
+    button[type=submit]{ width:100%; }
+  }
+</style>
+</head>
+<body>
+ 
+<header class="topbar">
+    <div class="brand">
+        <a href="index.html">FiBu</a>
+    </div>
+ 
+    <nav>
+        <ul class="desktop-nav">
+            <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav_about">About us</a></li>
+            <li><a href="service.html" data-i18n="nav_services">Services</a></li>
+            <li><a href="references.html" data-i18n="nav_references">References</a></li>
+            <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+    </nav>
+ 
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">☰</button>
+</header>
+ 
+<div class="nav-scrim" id="navScrim"></div>
+ 
+<!--aside class="mobile-nav" id="mobileMenu" aria-hidden="true">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="references.html">References</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</aside-->
+ 
+    <div class="wrap">
+
+  <div class="company-card">
+    <h2>Contact Details</h2>
+    <p><span class="label">Owner:</span><br>Kay Petruske</p>
+    <p><span class="label">Address:</span><br>Mühlenstraße 6<br>23919 Behlendorf</p>
+    <p><span class="label">Private Phone:</span><br>0151/261 98 288</p>
+    <p><span class="label">Office Phone:</span><br>0157/780 92 26</p>
+    <p><span class="label">Email:</span><br>service@fibu-support.de</p>
+  </div>
+
+  <div class="form-card" id="contact">
+    <h2>Contact Form</h2>
+    <form id="contactForm" novalidate action="https://formsubmit.co/service@fibu-support.de" method="POST">
+
+      <div class="field" data-field="company">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" autocomplete="organization">
+        <div class="error-text">Please enter your company name.</div>
+      </div>
+
+      <div class="field" data-field="first_name">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" autocomplete="given-name">
+        <div class="error-text">Please enter your first name.</div>
+      </div>
+
+      <div class="field" data-field="last_name">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" autocomplete="family-name">
+        <div class="error-text">Please enter your last name.</div>
+      </div>
+
+      <div class="field" data-field="email">
+        <label for="email">Your Email Address</label>
+        <input type="email" id="email" name="email" autocomplete="email">
+        <div class="error-text">Please enter a valid email address.</div>
+      </div>
+
+      <div class="field" data-field="subject">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject">
+        <div class="error-text">Please enter a subject.</div>
+      </div>
+
+      <div class="field" data-field="message">
+        <label for="message">Message</label>
+        <textarea id="message" name="message"></textarea>
+        <div class="error-text">Please enter your message.</div>
+      </div>
+
+      <!-- honeypot field to reduce spam - must stay empty -->
+      <div class="field" style="position:absolute; left:-9999px;" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button type="submit" id="submitBtn">Send</button>
+      <div id="formNotice" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+
+</div>
+
+<footer class="foot" id="contact">
+    <div class="foot-inner">
+        <h1>Your direct contact with us</h1>
+        <p>Would you like to learn more about our services or schedule a no-obligation initial consultation?</p>
+        <p>Please feel free to contact us. We look forward to getting to know you and finding the right solution for your needs.</p>
+ 
+        <h2>Financial Accounting </h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <span class="label">Private contact</span>
+                <p class="value"><a href="tel:+491512619 8288">0151 / 261 98 288</a></p>
+            </div>
+            <div class="contact-card">
+                <span class="label">Office contact</span>
+                <p class="value"><a href="tel:+4915778092 26">0157 / 780 92 26</a></p>
+            </div>
+            <div class="contact-card">
+                <span class="label">Email</span>
+                <p class="value"><a href="mailto:service@fibu-support.de">service@fibu-support.de</a></p>
+            </div>
+        </div>
+ 
+        <a href="contact.html" class="contact-form-link">Go to contact form</a>
+ 
+        <p class="tagline">Personal. Reliable. Competent.</p>
+        <p>Your partner for business management services.</p>
+    </div>
+</footer>
+ 
+<!--!Translator begin-->
+<div class="gtranslate_wrapper"></div>
+<script>
+    window.gtranslateSettings = {
+        "default_language": "en",
+        "languages": ["en", "de"],
+        "wrapper_selector": ".gtranslate_wrapper",
+        "flag_style": "3d",
+        "dropdown_style": "default",
+        //"cookie_expiration_days": 30
+        
+    };
+</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer ></script>
+ 
+</body>
+</html>
